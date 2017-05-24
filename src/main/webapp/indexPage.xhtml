@@ -13,37 +13,92 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     </f:facet>
 
-    <title>PrimeFaces Hello World Example</title>
+    <title>Storefront</title>
 
-    <h:outputStylesheet library="static" name="/jquery-ui-1.10.4.min.css"/>
-    <h:outputStylesheet library="static" name="/bootstrap.min.css"/>
-    <h:outputStylesheet library="static" name="/owl.carousel.css"/>
-    <h:outputStylesheet library="static" name="/style.css"/>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="resources/static/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="resources/static/custom.css"/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="#{resource['static/ico/favicon.png']}"/>
+
 </h:head>
 
 <h:body>
 
-    <ui:repeat value="#{mainBean.productsList}" var="product">
-
-        <div class="col-md-12">
-            <h2>#{product.name}</h2>
-            <h2>Only for $#{product.price}</h2>
+    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <ui:repeat value="#{mainBean.productsList}" var="product" varStatus="status">
+                <div class="item" id="item#{status.index}">
+                    <div class="carousel-caption carousel-caption-custom">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="resources/static/ico/defaultWatches.png" class="custom-img" alt="plug"></img>
+                            </div>
+                            <div class="col-sm-6 description-box">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="brand-name">
+                                            #{product.brandDto.name} #{product.name}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="custom-description">
+                                            Clockface: #{product.clockFace}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="custom-description">
+                                            Glass: #{product.glass}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="custom-description">
+                                            #{product.waterResistant}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="custom-description">
+                                            In stock: #{product.stock}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="price">
+                                            #{product.price} $
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:repeat>
         </div>
-
-    </ui:repeat>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 
     <p:socket onMessage="handleMessage" channel="/notify"  />
 
-    <h:outputScript library="static" name="/jquery.js" target="body"/>
-    <h:outputScript library="static" name="/jquery-ui-1.10.4.min.js" target="body"/>
-    <h:outputScript library="static" name="/custom.js" target="body"/>
-    <h:outputScript library="static" name="/owl.carousel.js" target="body"/>
-
-    <script type="text/javascript">
-        function handleMessage(data) {
-            location.reload();
-        }
-    </script>
+    <script type="text/javascript" src="resources/static/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="resources/static/bootstrap.min.js"></script>
+    <script type="text/javascript" src="resources/static/custom.js"></script>
 
 </h:body>
 </html>

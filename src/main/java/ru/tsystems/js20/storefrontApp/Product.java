@@ -1,8 +1,9 @@
 package ru.tsystems.js20.storefrontApp;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import ru.tsystems.js20.storefrontApp.service.Brand;
 
-@JsonIgnoreProperties({ "categoryDto", "brandDto", "description" })
+@JsonIgnoreProperties({ "categoryDto", "description" })
 public class Product {
 
     private Long id;
@@ -11,7 +12,7 @@ public class Product {
     private Double weight;
     private Double volume;
     private Double stock;
-    private String brandName;
+    private Brand brandDto;
     private boolean backlight;
     private String clockFace;
     private String glass;
@@ -19,10 +20,6 @@ public class Product {
     private String waterResistant;
 
     public Product() {
-    }
-
-    public Product(String name) {
-        this.name = name;
     }
 
     public Long getId() {
@@ -73,12 +70,12 @@ public class Product {
         this.stock = stock;
     }
 
-    public String getBrandName() {
-        return brandName;
+    public Brand getBrandDto() {
+        return brandDto;
     }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
+    public void setBrandDto(Brand brandDto) {
+        this.brandDto = brandDto;
     }
 
     public boolean isBacklight() {
@@ -130,7 +127,7 @@ public class Product {
                 ", weight=" + weight +
                 ", volume=" + volume +
                 ", stock=" + stock +
-                ", brandName='" + brandName + '\'' +
+                ", brandDto=" + brandDto +
                 ", backlight=" + backlight +
                 ", clockFace='" + clockFace + '\'' +
                 ", glass='" + glass + '\'' +
