@@ -1,9 +1,8 @@
-package ru.tsystems.js20.storefrontApp;
+package ru.tsystems.js20.storefrontApp.model;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import ru.tsystems.js20.storefrontApp.service.Brand;
 
-@JsonIgnoreProperties({ "categoryDto", "description" })
+@JsonIgnoreProperties({ "categoryDto", "description", "multipartFile" })
 public class Product {
 
     private Long id;
@@ -18,6 +17,8 @@ public class Product {
     private String glass;
     private String gender;
     private String waterResistant;
+    private String imageURL;
+    private String imageId;
 
     public Product() {
     }
@@ -118,6 +119,22 @@ public class Product {
         this.waterResistant = waterResistant;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -133,6 +150,8 @@ public class Product {
                 ", glass='" + glass + '\'' +
                 ", gender='" + gender + '\'' +
                 ", waterResistant='" + waterResistant + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                ", imageId='" + imageId + '\'' +
                 '}';
     }
 }

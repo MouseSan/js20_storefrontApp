@@ -2,7 +2,7 @@ package ru.tsystems.js20.storefrontApp.service;
 
 import org.primefaces.push.EventBus;
 import org.primefaces.push.EventBusFactory;
-import ru.tsystems.js20.storefrontApp.Product;
+import ru.tsystems.js20.storefrontApp.model.Product;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService {
     @Inject
     private WebService webService;
 
-    private static List<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
     @PostConstruct
     private void init() {

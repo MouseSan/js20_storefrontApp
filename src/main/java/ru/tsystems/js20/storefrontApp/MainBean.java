@@ -1,5 +1,6 @@
 package ru.tsystems.js20.storefrontApp;
 
+import ru.tsystems.js20.storefrontApp.model.Product;
 import ru.tsystems.js20.storefrontApp.service.ProductService;
 
 import javax.faces.bean.ManagedBean;

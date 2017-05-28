@@ -4,7 +4,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>
 
 <h:head>
     <f:facet name="first">
@@ -32,7 +33,10 @@
                     <div class="carousel-caption carousel-caption-custom">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="resources/static/ico/defaultWatches.png" class="custom-img" alt="plug"></img>
+                                <h:graphicImage value="http://res.cloudinary.com/mousesan/image/upload/w_300,h_300,c_pad,b_rgb:FFFFFF/${product.imageId}.png" class="custom-img" alt="Product image"
+                                                rendered="#{not empty product.imageId}" styleClass="custom-img"/>
+                                <h:graphicImage value="resources/img/big-product-plug.png"
+                                                rendered="#{empty product.imageId}" styleClass="custom-img"/>
                             </div>
                             <div class="col-sm-6 description-box">
                                 <div class="row">

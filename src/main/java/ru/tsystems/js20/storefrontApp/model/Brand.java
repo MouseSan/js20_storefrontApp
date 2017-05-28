@@ -1,4 +1,4 @@
-package ru.tsystems.js20.storefrontApp.service;
+package ru.tsystems.js20.storefrontApp.model;
 
 public class Brand {
 

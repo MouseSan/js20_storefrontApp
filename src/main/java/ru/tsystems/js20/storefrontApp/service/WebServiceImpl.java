@@ -5,7 +5,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
-import ru.tsystems.js20.storefrontApp.Product;
+import ru.tsystems.js20.storefrontApp.model.Product;
 
 import javax.ejb.Stateless;
 

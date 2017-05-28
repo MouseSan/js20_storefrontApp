@@ -13,5 +13,4 @@ public class NotifyResource {
     public String onMessage(String message) {
         return message;
     }
-
 }
