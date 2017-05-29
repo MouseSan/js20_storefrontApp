@@ -20,7 +20,10 @@
     <link rel="stylesheet" type="text/css" media="all" href="resources/static/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="resources/static/custom.css"/>
 
-    <link rel="shortcut icon" type="image/x-icon" href="#{resource['static/ico/favicon.png']}"/>
+    <link rel="icon" type="image/png" href="#{resource['img/favicon16.png']}" />
+    <link rel="icon" type="image/png" href="#{resource['img/favicon32.png']}" />
+    <link rel="icon" type="image/png" href="#{resource['img/favicon96.png']}" />
+    <link rel="apple-touch-icon" type="image/png" href="#{resource['img/favicon152.png']}" />
 
 </h:head>
 
@@ -33,10 +36,16 @@
                     <div class="carousel-caption carousel-caption-custom">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h:graphicImage value="http://res.cloudinary.com/mousesan/image/upload/w_300,h_300,c_pad,b_rgb:FFFFFF/${product.imageId}.png" class="custom-img" alt="Product image"
-                                                rendered="#{not empty product.imageId}" styleClass="custom-img"/>
-                                <h:graphicImage value="resources/img/big-product-plug.png"
-                                                rendered="#{empty product.imageId}" styleClass="custom-img"/>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h:outputLink value="http://localhost:8080/products/#{product.id}" >
+                                        <h:graphicImage value="http://res.cloudinary.com/mousesan/image/upload/w_300,h_300,c_pad,b_rgb:FFFFFF/${product.imageId}.png" class="custom-img" alt="Product image"
+                                                        rendered="#{not empty product.imageId}" styleClass="custom-img"/>
+                                        <h:graphicImage value="resources/img/big-product-plug.png"
+                                                        rendered="#{empty product.imageId}" styleClass="custom-img"/>
+                                        </h:outputLink>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-sm-6 description-box">
                                 <div class="row">
