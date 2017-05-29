@@ -1,5 +1,7 @@
 package ru.tsystems.js20.storefrontApp;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.tsystems.js20.storefrontApp.model.Product;
 import ru.tsystems.js20.storefrontApp.service.ProductService;
 
@@ -15,7 +17,10 @@ public class MainBean {
     @Inject
     private ProductService productService;
 
+    Logger logger = LoggerFactory.getLogger(getClass());
+
     public List<Product> getProductsList() {
+        logger.debug("Getting product list from service");
         return productService.getAllProducts();
     }
 
